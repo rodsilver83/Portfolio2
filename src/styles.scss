@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~compass-sass-mixins/lib/compass";
+
+
+$body-bg: #042037;
+$header-fg: lighten(#dff2e1, 6%);
+
+$navbar-default-bg: $body-bg;
+$navbar-default-brand-color: #5A7C5A;
+$navbar-default-link-color: $header-fg;
+$navbar-default-link-active-color: #e0e0e0;
+$navbar-default-link-hover-color: #dff2e1;
+$navbar-border-radius: 0px;
+$navbar-margin-bottom: 0px;
+
+$text-color: $header-fg;
+
+$dark-color: darken(#5A7C5A, 10%);
+
+$dark-color-secondary: #AA5B39;
+
+$about-me-height: 600px;
+
+$default-text-shadow-color: rgba(0, 0, 0, 1);
+$default-text-shadow-blur: 4px;
+$default-text-shadow-v-offset: 1px;
+
+$blockquote-small-color: darken($header-fg, 10%);
+$blockquote-border-color: $header-fg;
+
+$modal-content-bg: $header-fg;
+
+@import "~bootstrap/scss/bootstrap";

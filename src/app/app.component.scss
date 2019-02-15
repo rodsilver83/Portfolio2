@@ -1,0 +1,24 @@
+@import "~compass-sass-mixins/lib/animate";
+
+@font-face {
+  src: url("../assets/fonts/Quicksand-Bold.svg") format('svg'), url("../assets/fonts/quicksand-bold-webfont.ttf") format('truetype');
+  font-family: "Quicksand";
+  font-weight: bold;
+}
+
+@font-face {
+  src: url("../assets/fonts/Quicksand-Regular.svg") format('svg'), url("../assets/fonts/quicksand-regular-webfont.ttf") format('truetype');
+  font-family: "Quicksand";
+  font-weight: normal;
+}
+
+@font-face {
+  src: url("../assets/fonts/Quicksand-Italic.svg") format('svg'), url("../assets/fonts/quicksand-italic-webfont.ttf") format('truetype');
+  font-family: "Quicksand";
+  font-style: italic;
+  font-weight: normal;
+}
+
+*, body {
+  font-family: "Quicksand";
+}
