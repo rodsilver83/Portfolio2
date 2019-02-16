@@ -20,15 +20,16 @@ export class AppComponent implements AfterViewInit {
   public WINDOW_OFFSET = 50;//px
   public CONST_VY = -0.4;
   public MAX_CONST_VX = -0.0;
-  public DOT_COLOR = "#2A4F6E";
-  public START_GRADIENT = "#042037";
-  public END_GRADIENT = "#003A23";
+  public DOT_COLOR = "#c2dcda";
+  public START_GRADIENT = "#1669b2";
+  public END_GRADIENT = "#121e39";
   public INIT_SIZE_DOT = 0;
   public DOT_GROW_SIZE = 0.05;
   public DOT_MAX_SIZE = 150;
   public FILL_DOT = false;
 
   private interval: any;
+  private intervalCount = 0;
 
   ngAfterViewInit() {
     this.canvas = document.getElementById("canvas-element");
@@ -90,6 +91,7 @@ export class AppComponent implements AfterViewInit {
         size: this.INIT_SIZE_DOT,
         color: this.DOT_COLOR,
         alpha: 0,
+        visible: false,
         id: 0
       });
     }
@@ -103,10 +105,19 @@ export class AppComponent implements AfterViewInit {
             this.particles[i].size = this.INIT_SIZE_DOT;
           }
           this.particles[i].id = i;
-          this.moveParticles(i);
-          this.calculateLines(i);
-          this.drawDot(this.particles[i]);
+          if (Math.floor(this.intervalCount / 300) === i && !this.particles[i].visible) {
+            this.particles[i].visible = true;
+            this.particles[i].size = this.INIT_SIZE_DOT;
+          }
+          if(this.particles[i].visible) {
+            this.moveParticles(i);
+            this.calculateLines(i);
+            this.drawDot(this.particles[i]);
+          }
         }
+      }
+      if(this.intervalCount < this.particles.length * 300) {
+        this.intervalCount ++;
       }
     },20);
   }
