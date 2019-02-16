@@ -160,12 +160,6 @@ export class AppComponent implements AfterViewInit {
 
   calculateAlpha(distance) {
     let alpha = 1.1 - ( distance / this.MAX_DISTANCE);
-    if(alpha > 1) {
-      alpha = 1;
-    }
-    if(alpha < 0) {
-      alpha = 0;
-    }
     return alpha;
   }
 
@@ -227,7 +221,7 @@ export class AppComponent implements AfterViewInit {
   }
 
   drawDot(dot) {
-    let alpha = 1.1 - ( (dot.size) / this.DOT_MAX_SIZE);
+    let alpha = 1 - ( (dot.size) / this.DOT_MAX_SIZE);
     this.context.strokeStyle = this.hexToRGBA(this.DOT_COLOR, alpha);
     this.context.beginPath();
     this.context.arc(dot.x, dot.y, dot.size, 0, 2 * Math.PI);
