@@ -1,53 +1,58 @@
-<!--The content below is only a placeholder and can be replaced.-->
+<div id="canvas-container">
+    <canvas id="canvas-element">
+        Your browser does not support the Canvas element.
+    </canvas>
+</div>
+
 <nav class="navbar navbar-dark navbar-expand">
-    <div class="logo-rs" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
-        aria-controls="collapseExample">RS</div>
+    <div class="logo-rs" (click)="aboutMeToggle = ! aboutMeToggle">RS</div>
     <div class="collapse navbar-collapse" id="navbarText">
         <span class="navbar-title">
             Front End Developer
         </span>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Skills</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Portfolio</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+            </li>
+        </ul>
     </div>
 </nav>
 
-<div class="collapse collapseContainer" id="collapseExample">
-    <div class="card card-body">
-        <form>
-            <div class="form-row">
-                <div class="col-md-3">
-                    <label>CONST_VX Speed</label>
-                    <input [(ngModel)]="CONST_VX" type="number" name="CONST_VX" step="0.1">
-                </div>
-                <div class="col-md-3">
-                    <label>CONST_VY Speed</label>
-                    <input [(ngModel)]="CONST_VY" type="number" name="CONST_VY" step="0.1">
-                </div>
-                <div class="col-md-3">
-                    <label>START_GRADIENT</label>
-                    <input [(ngModel)]="START_GRADIENT" type="color" name="START_GRADIENT">
-                </div>
-                <div class="col-md-3">
-                    <label>END_GRADIENT</label>
-                    <input [(ngModel)]="END_GRADIENT" type="color" name="END_GRADIENT">
-                </div>
-                <div class="col-md-3">
-                    <label>DOT_COLOR</label>
-                    <input [(ngModel)]="DOT_COLOR" type="color" name="DOT_COLOR">
-                </div>
-                <div class="col-md-3">
-                    <label>DOT_GROW_SIZE</label>
-                    <input [(ngModel)]="DOT_GROW_SIZE" type="number" name="DOT_GROW_SIZE" step="0.1">
-                </div>
-                <div class="col-md-3">
-                    <label>FILL_DOT</label>
-                    <input [(ngModel)]="FILL_DOT" type="checkbox" name="FILL_DOT">
-                </div>
+<div class="main-container-flex">
+    <div class="p-4 container about-me-container" [class.about-me-container_hide]="aboutMeToggle">
+        <div class="row justify-content-center">
+            <div class="col-4">
+                <img src="assets/images/picture.jpg" class="img-fluid float-right photo-container">
             </div>
-        </form>
+            <div class="col-8">
+                <h2 class="about-me-title">
+                    Rodrigo<br>Soria
+                </h2>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <p class="mt-3 text-justify">
+                    I'm a Software Engineer / Front End Developer with a UI/UX designer in me. When I'm not freelancing,
+                    I'm playing
+                    videogames.
+                </p>
+                <p class="mb-0 text-justify">
+                    I spend my free time creating new levels for my IOS game, have a various set of skills, from HTML +
+                    CSS + JS, Angular,
+                    mobile to Git deployment and Linux server administration
+                    to name a few.
+                </p>
+            </div>
+        </div>
     </div>
-</div>
-
-<div id="canvas-container">
-    <canvas class="hidden-xs hidden-sm" id="canvas-element" style="display: inline;">
-        Your browser does not support the Canvas element.
-    </canvas>
 </div>
