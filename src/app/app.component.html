@@ -1,7 +1,53 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<nav class="navbar navbar-dark navbar-expand">
+    <div class="logo-rs" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
+        aria-controls="collapseExample">RS</div>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <span class="navbar-title">
+            Front End Developer
+        </span>
+    </div>
+</nav>
+
+<div class="collapse collapseContainer" id="collapseExample">
+    <div class="card card-body">
+        <form>
+            <div class="form-row">
+                <div class="col-md-3">
+                    <label>CONST_VX Speed</label>
+                    <input [(ngModel)]="CONST_VX" type="number" name="CONST_VX" step="0.1">
+                </div>
+                <div class="col-md-3">
+                    <label>CONST_VY Speed</label>
+                    <input [(ngModel)]="CONST_VY" type="number" name="CONST_VY" step="0.1">
+                </div>
+                <div class="col-md-3">
+                    <label>START_GRADIENT</label>
+                    <input [(ngModel)]="START_GRADIENT" type="color" name="START_GRADIENT">
+                </div>
+                <div class="col-md-3">
+                    <label>END_GRADIENT</label>
+                    <input [(ngModel)]="END_GRADIENT" type="color" name="END_GRADIENT">
+                </div>
+                <div class="col-md-3">
+                    <label>DOT_COLOR</label>
+                    <input [(ngModel)]="DOT_COLOR" type="color" name="DOT_COLOR">
+                </div>
+                <div class="col-md-3">
+                    <label>DOT_GROW_SIZE</label>
+                    <input [(ngModel)]="DOT_GROW_SIZE" type="number" name="DOT_GROW_SIZE" step="0.1">
+                </div>
+                <div class="col-md-3">
+                    <label>FILL_DOT</label>
+                    <input [(ngModel)]="FILL_DOT" type="checkbox" name="FILL_DOT">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
 <div id="canvas-container">
     <canvas class="hidden-xs hidden-sm" id="canvas-element" style="display: inline;">
         Your browser does not support the Canvas element.
     </canvas>
 </div>
-

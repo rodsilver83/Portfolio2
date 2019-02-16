@@ -1,5 +1,13 @@
 @import "~compass-sass-mixins/lib/animate";
 
+// Variables
+$color-white: #F5FBF5;
+$color-dark-blue: #031f38;
+$color-dark-yellow: #FFB74C;
+$color-green: #199b70;
+$color-orange: #E96725;
+$title-font-size: 20px;
+
 @font-face {
   src: url("../assets/fonts/Quicksand-Bold.svg") format('svg'), url("../assets/fonts/quicksand-bold-webfont.ttf") format('truetype');
   font-family: "Quicksand";
@@ -21,4 +29,85 @@
 
 *, body {
   font-family: "Quicksand";
+}
+
+// NavBar
+@include keyframes(pulse-logo) {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.logo-rs {
+  margin: 5px;
+  color: $color-green;
+  padding: $title-font-size / 2;
+  border: 1px solid $color-green;
+  font-size: $title-font-size;
+  border-radius: 5px; 
+  position: relative;
+  line-height: 26px;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  background: transparent;
+  cursor: pointer;
+
+  &::before {
+    content: '';
+    border: 1px solid $color-green;
+    position: absolute;
+    width: 56px;
+    height: 56px;
+    top: -4px;
+    left: -4px;
+    border-radius: 5px;
+    @include animation-name(pulse-logo);
+    @include animation-delay(0s);
+    @include animation-duration(4s);
+    @include animation-iteration-count(infinite);
+    @include animation-timing-function(ease);
+  }
+
+
+  &::after {
+    content: '';
+    border: 1px solid $color-green;
+    position: absolute;
+    width: 62px;
+    height: 62px;
+    top: -7px;
+    left: -7px;
+    border-radius: 5px;
+    @include animation-name(pulse-logo);
+    @include animation-delay(0.3s);
+    @include animation-duration(4s);
+    @include animation-iteration-count(infinite);
+    @include animation-timing-function(ease);
+  }
+}
+
+.navbar-title {
+  color: $color-orange;
+  font-size: $title-font-size;
+  margin-left: $title-font-size / 2;
+  font-weight: normal;
+}
+
+.navbar {
+  border-bottom: 1px solid darken($color-dark-blue, 3%);
+}
+
+.collapseContainer {
+  position: absolute;
+  margin: 20px;
 }
