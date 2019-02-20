@@ -4,37 +4,41 @@
     </canvas>
 </div>
 
-<nav class="navbar navbar-dark navbar-expand">
-    <div class="logo-rs" (click)="aboutMeToggle = ! aboutMeToggle">RS</div>
-    <div class="collapse navbar-collapse" id="navbarText">
-        <span class="navbar-title">
-            Front End Developer
-        </span>
+<nav class="navbar navbar-dark navbar-expand-sm">
+    <div class="d-none d-sm-block logo-rs" (click)="visibleSection = SECTIONS.NONE">RS</div>
+    <span class="navbar-title">
+        Front End Developer
+    </span>
+    <div class="d-block d-sm-none logo-rs" (click)="toggleMenu()">RS</div>
+    <div class="navbar-collapse navbar-small" [class.navbar-small_show]="menuToggle">
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a>
+            <li class="nav-item" [class.active]="visibleSection === SECTIONS.HOME">
+                <a class="nav-link" (click)="visibleSection = SECTIONS.HOME" href="#">Home</a>
             </li>
+            <!-- <li class="nav-item" [class.active]="visibleSection === SECTIONS.ABOUT">
+                <a class="nav-link" (click)="visibleSection = SECTIONS.ABOUT" href="#">About</a>
+            </li> -->
             <li class="nav-item">
                 <a class="nav-link" href="#">Skills</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Portfolio</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Contact</a>
+            <li class="nav-item" [class.active]="visibleSection === SECTIONS.CONTACT">
+                <a class="nav-link" (click)="visibleSection = SECTIONS.CONTACT" href="#">Contact</a>
             </li>
         </ul>
     </div>
 </nav>
 
 <div class="main-container-flex">
-    <div class="p-4 container about-me-container" [class.about-me-container_hide]="aboutMeToggle">
+    <div class="p-4 container section-container" [class.section-container_show]="visibleSection === SECTIONS.HOME">
         <div class="row justify-content-center">
             <div class="col-4">
                 <img src="assets/images/picture.jpg" class="img-fluid float-right photo-container">
             </div>
             <div class="col-8">
-                <h2 class="about-me-title">
+                <h2 class="section-title section-title_image">
                     Rodrigo<br>Soria
                 </h2>
             </div>
@@ -43,8 +47,7 @@
             <div class="col-12">
                 <p class="mt-3 text-justify">
                     I'm a Software Engineer / Front End Developer with a UI/UX designer in me. When I'm not freelancing,
-                    I'm playing
-                    videogames.
+                    I'm playing videogames.
                 </p>
                 <p class="mb-0 text-justify">
                     I spend my free time creating new levels for my IOS game, have a various set of skills, from HTML +
@@ -55,4 +58,86 @@
             </div>
         </div>
     </div>
+
+    <!-- <div class="p-4 container section-container" [class.section-container_show]="visibleSection === SECTIONS.ABOUT">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <h2 class="section-title">
+                    About Me
+                </h2>
+                <p class="text-justify">
+                    I enjoy turning complex problems into simple tasks. I'm coding most of the time, or playing
+                    videogames, you'll find me in the gym from time to time.
+                </p>
+                <p class="text-justify">
+                    I like a challenge when it comes to learn new technologies, tools, or new ways to design, always
+                    looking for the next
+                    best way to code.
+                </p>
+            </div>
+            <div class="col-12">
+                <h3>
+                    Favorite Quotes
+                </h3>
+                <p class="text-justify">
+                    I enjoy turning complex problems into simple tasks. I'm coding most of the time, or playing
+                    videogames, you'll find me in the gym from time to time.
+                </p>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="px-4 container section-container section-container_white section-container_small"
+        [class.section-container_show]="visibleSection === SECTIONS.CONTACT">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <h2 class="section-title text-center">
+                    Contact
+                </h2>
+                <ul class="contact-list">
+                    <li class="contact-list__item">
+                        <a href="https://github.com/rodsilver83" target="_blank">
+                            <span class="contact-icon">
+                                <i class="fab fa-github"></i>
+                            </span>
+                            <span class="contact-link">github</span>
+                        </a>
+                    </li>
+                    <li class="contact-list__item">
+                        <a href="https://www.linkedin.com/in/soriarodrigo" target="_blank">
+                            <span class="contact-icon">
+                                <i class="fab fa-linkedin"></i>
+                            </span>
+                            <span class="contact-link">linkedin</span>
+                        </a>
+                    </li>
+                    <li class="contact-list__item">
+                        <a href="https://codepen.io/Rodsilver83/" target="_blank">
+                            <span class="contact-icon">
+                                <i class="fab fa-codepen"></i>
+                            </span>
+                            <span class="contact-link">codepen</span>
+                        </a>
+                    </li>
+                    <li class="contact-list__item">
+                        <a href="mailto:hello@rodrigosoria.me" target="_blank">
+                            <span class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                            <span class="contact-link">hello@rodrigosoria.me</span>
+                        </a>
+                    </li>
+                    <li class="contact-list__item">
+                        <a href="" target="_blank">
+                            <span class="contact-icon">
+                                <i class="fas fa-file-alt"></i>
+                            </span>
+                            <span class="contact-link">resume</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
 </div>

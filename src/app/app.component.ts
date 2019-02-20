@@ -2,6 +2,15 @@ import { Component, AfterViewInit, HostListener } from '@angular/core';
 import { compileNgModule } from '@angular/core/src/render3/jit/module';
 import { timer } from 'rxjs';
 
+export enum SECTIONS {
+  NONE,
+  HOME,
+  ABOUT,
+  SKILLS,
+  PORTFOLIO,
+  CONTACT
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -28,11 +37,12 @@ export class AppComponent implements AfterViewInit {
   public DOT_GROW_SIZE = 0.04;
   public DOT_MAX_SIZE = 100;
   public FILL_DOT = false;
+  public SECTIONS = SECTIONS;
+  public visibleSection: SECTIONS = SECTIONS.NONE;
 
   private interval: any;
   private intervalCount = -200;
 
-  private aboutMeToggle = true;
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
@@ -51,7 +61,11 @@ export class AppComponent implements AfterViewInit {
     this.initCanvas();
     // }
 
-    timer(2500).subscribe(() => this.aboutMeToggle = false);
+    timer(2500).subscribe(() => this.visibleSection = SECTIONS.HOME);
+  }
+
+  setSection(section: SECTIONS) {
+    this.visibleSection = section;
   }
 
   apply() {
