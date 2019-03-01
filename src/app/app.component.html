@@ -15,14 +15,11 @@
             <li class="nav-item" [class.active]="visibleSection === SECTIONS.HOME">
                 <a class="nav-link" (click)="visibleSection = SECTIONS.HOME" href="#">Home</a>
             </li>
-            <!-- <li class="nav-item" [class.active]="visibleSection === SECTIONS.ABOUT">
-                <a class="nav-link" (click)="visibleSection = SECTIONS.ABOUT" href="#">About</a>
-            </li> -->
-            <li class="nav-item">
-                <a class="nav-link" href="#">Skills</a>
+            <li class="nav-item" [class.active]="visibleSection === SECTIONS.SKILLS">
+                <a class="nav-link" (click)="visibleSection = SECTIONS.SKILLS" href="#">Skills</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Portfolio</a>
+            <li class="nav-item" [class.active]="visibleSection === SECTIONS.PORTFOLIO">
+                <a class="nav-link" (click)="visibleSection = SECTIONS.PORTFOLIO" href="#">Portfolio</a>
             </li>
             <li class="nav-item" [class.active]="visibleSection === SECTIONS.CONTACT">
                 <a class="nav-link" (click)="visibleSection = SECTIONS.CONTACT" href="#">Contact</a>
@@ -32,12 +29,13 @@
 </nav>
 
 <div class="main-container-flex">
-    <div class="p-4 container section-container" [class.section-container_show]="visibleSection === SECTIONS.HOME">
+    <div class="p-4 container section-container section-container_medium"
+        [class.section-container_show]="visibleSection === SECTIONS.HOME">
         <div class="row justify-content-center">
-            <div class="col-4">
+            <div class="col-6">
                 <img src="assets/images/picture.jpg" class="img-fluid float-right photo-container">
             </div>
-            <div class="col-8">
+            <div class="col-6">
                 <h2 class="section-title section-title_image">
                     Rodrigo<br>Soria
                 </h2>
@@ -49,12 +47,92 @@
                     I'm a Software Engineer / Front End Developer with a UI/UX designer in me. When I'm not freelancing,
                     I'm playing videogames.
                 </p>
-                <p class="mb-0 text-justify">
+                <p class="text-justify">
                     I spend my free time creating new levels for my IOS game, have a various set of skills, from HTML +
                     CSS + JS, Angular,
                     mobile to Git deployment and Linux server administration
                     to name a few.
                 </p>
+                <p class="mb-0 text-justify">
+                    I enjoy turning complex problems into simple tasks, is like solving a puzzle. I'm coding most of the
+                    time, or playing
+                    videogames, you'll find me in the gym from time to time.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="px-4 container section-container section-container_white"
+        [class.section-container_show]="visibleSection === SECTIONS.SKILLS">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <h2 class="section-title text-center">
+                    Skills
+                </h2>
+            </div>
+        </div>
+        <div class="row align-items-end bar-container text-center no-gutters">
+            <div class="col-2 px-sm-2">
+                <div class="bar bar-html5 p-1">95%</div>
+            </div>
+            <div class="col-2 px-sm-2">
+                <div class="bar bar-angular p-1">90%</div>
+            </div>
+            <div class="col-2 px-sm-2">
+                <div class="bar bar-js p-1">95%</div>
+            </div>
+            <div class="col-2 px-sm-2">
+                <div class="bar bar-css3 p-1">90%</div>
+            </div>
+            <div class="col-2 px-sm-2">
+                <div class="bar bar-mobile p-1">80%</div>
+            </div>
+            <div class="col-2 px-sm-2">
+                <div class="bar bar-jedi p-1">40%</div>
+            </div>
+        </div>
+
+        <div class="row align-items-end text-center no-gutters mt-2 mb-3">
+            <div class="col-2 px-sm-2">
+                <span class="skills-icon orange">
+                    <i class="fab fa-html5"></i>
+                </span>
+            </div>
+            <div class="col-2 px-sm-2">
+                <span class="skills-icon icon red">
+                    <i class="fab fa-angular"></i>
+                </span>
+            </div>
+            <div class="col-2 px-sm-2">
+                <span class="skills-icon icon yellow">
+                    <i class="fab fa-js"></i>
+                </span>
+            </div>
+            <div class="col-2 px-sm-2">
+                <span class="skills-icon icon blue">
+                    <i class="fab fa-css3-alt"></i>
+                </span>
+            </div>
+            <div class="col-2 px-sm-2">
+                <span class="skills-icon icon green">
+                    <i class="fas fa-mobile-alt"></i>
+                </span>
+            </div>
+            <div class="col-2 px-sm-2">
+                <span class="skills-icon icon dark-blue">
+                    <i class="fas fa-jedi"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="px-4 container section-container section-container_large"
+        [class.section-container_show]="visibleSection === SECTIONS.PORTFOLIO">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <h2 class="section-title text-center">
+                    Portfolio
+                </h2>
             </div>
         </div>
     </div>
@@ -97,7 +175,7 @@
                 <ul class="contact-list">
                     <li class="contact-list__item">
                         <a href="https://github.com/rodsilver83" target="_blank">
-                            <span class="contact-icon">
+                            <span class="contact icon">
                                 <i class="fab fa-github"></i>
                             </span>
                             <span class="contact-link">github</span>
@@ -105,7 +183,7 @@
                     </li>
                     <li class="contact-list__item">
                         <a href="https://www.linkedin.com/in/soriarodrigo" target="_blank">
-                            <span class="contact-icon">
+                            <span class="contact icon">
                                 <i class="fab fa-linkedin"></i>
                             </span>
                             <span class="contact-link">linkedin</span>
@@ -113,7 +191,7 @@
                     </li>
                     <li class="contact-list__item">
                         <a href="https://codepen.io/Rodsilver83/" target="_blank">
-                            <span class="contact-icon">
+                            <span class="contact icon">
                                 <i class="fab fa-codepen"></i>
                             </span>
                             <span class="contact-link">codepen</span>
@@ -121,7 +199,7 @@
                     </li>
                     <li class="contact-list__item">
                         <a href="mailto:hello@rodrigosoria.me" target="_blank">
-                            <span class="contact-icon">
+                            <span class="contact icon">
                                 <i class="fas fa-envelope"></i>
                             </span>
                             <span class="contact-link">hello@rodrigosoria.me</span>
@@ -129,7 +207,7 @@
                     </li>
                     <li class="contact-list__item">
                         <a href="" target="_blank">
-                            <span class="contact-icon">
+                            <span class="contact icon">
                                 <i class="fas fa-file-alt"></i>
                             </span>
                             <span class="contact-link">resume</span>
