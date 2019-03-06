@@ -6,10 +6,12 @@ $color-white: #F5FBF5;
 $color-dark-blue: #031f38;
 $color-light-blue: lighten($color-dark-blue, 20%);;
 $color-dark-yellow: #FFB74C;
+$color-light-yellow: lighten($color-dark-yellow, 20%);;
 $color-green: #199b70;
 $color-orange: #E96725;
 $color-red: #e92525;
 $title-font-size: 20px;
+$box-sahdow: 1px 1px 5px $color-dark-blue;
 
 // animations timing
 $timing-function: cubic-bezier(.62,-0.32,.36,1.31);
@@ -119,6 +121,42 @@ body {
   }
   100% {
     top: 0;
+  }
+}
+
+@include keyframes(bpg-scroll) {
+  0% {
+    @include translateY(-20px);
+  }
+  100% {
+    @include translateY(-450px);
+  }
+}
+
+@include keyframes(internews-scroll) {
+  0%, 5%, 97%, 100% {
+    margin-left: 0px;
+  }
+  10%, 15%, 90%, 95% {
+    margin-left: -180px;
+  }
+  20%, 25%, 80%, 85% {
+    margin-left: -360px;
+  }
+  30%, 35%, 70%, 75% {
+    margin-left: -535px;
+  }
+  40%, 60% {
+    margin-left: -710px;
+  }
+}
+
+@include keyframes(v147-scroll) {
+  0% {
+    @include translateY(-20px);
+  }
+  100% {
+    @include translateY(-330px);
   }
 }
 
@@ -271,7 +309,6 @@ body {
   padding: 10px;
   max-width: 500px;
   @include translateY(0);
-
   @include transition-property(opacity, transform);
   @include transition-duration(1s);
   @include transition-timing-function($timing-function);
@@ -297,6 +334,15 @@ body {
     }
   }
 
+  &.section-container_transparent {
+    background: transparent;
+    color: $color-white;
+    text-shadow: 2px 2px 3px $color-dark-blue;
+    .section-title {
+      color: $color-white;
+    }
+  }
+
   &.section-container_small {
     @include media-breakpoint-up(sm) {
       max-width: 320px;
@@ -317,12 +363,12 @@ body {
 }
 
 .section-title {
-  font-size: 50px;
+  font-size: 53px;
   line-height: 100%;
-  margin: 13px 0;
 
   @include media-breakpoint-down(sm) {
     font-size: 40px;
+    margin: 20px 0;
 
     &.section-title_image {
       margin: 0;
@@ -334,9 +380,11 @@ body {
   border-radius: 10px;
   border: 1px solid white;
   padding: 5px;
-  max-width: 130px;
+  max-width: 110px;
+  margin: 0 10px;
   @include media-breakpoint-down(sm) {
     max-width: 100%;
+    margin: 0;
   }
 }
 
@@ -372,7 +420,7 @@ body {
   }
 }
 
-.icon, .skills-icon {
+.icon, .skills-icon, .portfolio-icon {
   font-size: 40px;
   display: inline-block;
   width: 40px;
@@ -404,6 +452,14 @@ body {
 
   &.dark-blue {
     color: $color-dark-blue;
+  }
+}
+
+.portfolio-icon {
+  font-size: 300px;
+  width: 100%;
+  &.portfolio-icon_hotizontal {
+    @include transform(rotateZ(90deg));
   }
 }
 
@@ -465,4 +521,170 @@ body {
   background-color: $color-dark-blue;
   border: 1px solid lighten($color-dark-blue, 20%);
   height: 80px;
+}
+
+.portfolio-list {
+  list-style: none;
+  padding: 0px;
+}
+
+.portfolio-list__link {
+  @include transition-duration(0.3s);
+  @include transition-property(background-color, color, border-color);
+  @include transition-timing-function($timing-function);
+  padding: 5px;
+  margin: 10px 0;
+  border: 1px solid $color-green;
+  color: $color-green;
+  border-radius: 5px;
+  text-align: center;
+  background-color: $color-dark-blue;
+  text-shadow: none;
+  box-shadow: $box-sahdow;
+
+  &.portfolio-list__link_active {
+    background-color: $color-light-blue;
+    color: $color-white;
+    border-color: $color-light-blue;
+  }
+}
+
+.portfolio__content {
+  margin: 10px 0;
+}
+
+.amazen-iphone {
+  position: absolute;
+}
+
+.amazen-frame {
+  border: 15px solid $color-dark-blue;
+  margin: 0 auto;
+  width: 100%;
+  height: 200px;
+  border-radius: 20px;
+  padding: 5px;
+  background: $color-dark-blue;
+  box-shadow: $box-sahdow;
+  @include media-breakpoint-up(sm) {
+    width: auto;
+  }
+}
+
+.portfolio__container {
+  @include translateY(0);
+  @include transition-property(opacity, transform);
+  @include transition-duration(1s);
+  @include transition-timing-function($timing-function);
+  @include media-breakpoint-up(sm) {
+    @include translateY(100vh);
+    opacity: 0;
+    left: 0;
+    right: 0;
+    max-height: 300px;
+    margin-top: 5px;
+    position: absolute;
+    
+
+    &.portfolio__container_show {
+      @include translateY(0);
+      opacity: 1;
+    }
+  }
+
+  margin-top: 20px;
+}
+
+.portfolio__container-wrapper {
+    @include media-breakpoint-up(sm) {
+      min-height: 300px;
+    }
+}
+
+.bpg-frame {
+  border: 15px solid $color-dark-blue;
+  margin: 0 auto;
+  width: auto;
+  height: 200px;
+  border-radius: 20px;
+  padding: 5px;
+  background: $color-dark-blue;
+  box-shadow: $box-sahdow;
+  overflow: hidden;
+
+  @include media-breakpoint-up(sm) {
+      max-height: 300px;
+      max-width: 350px;
+  }
+
+  .bpg-image {
+    overflow: hidden;
+    top: 0;
+    position: relative;
+
+    @include animation-name(bpg-scroll);
+    @include animation-delay(2s);
+    @include animation-duration(15s);
+    @include animation-iteration-count(infinite);
+    @include animation-timing-function(ease-in-out);
+    @include animation-direction(alternate);
+  }
+}
+
+.internews-frame {
+  border: 15px solid $color-dark-blue;
+  margin: 0 auto;
+  height: 350px;
+  border-radius: 20px;
+  padding: 5px;
+  background: $color-dark-blue;
+  box-shadow: $box-sahdow;
+  overflow: hidden;
+  max-width: 200px;
+  width: 200px;
+
+  .internews-image {
+    overflow: hidden;
+    top: 0;
+    position: relative;
+    max-width: 875px;
+    height: 309px;
+
+    @include animation-name(internews-scroll);
+    @include animation-delay(2s);
+    @include animation-duration(35s);
+    @include animation-iteration-count(infinite);
+    @include animation-timing-function(ease-in-out);
+    @include animation-direction(alternate);
+  }
+}
+
+.v147-frame {
+  border: 15px solid $color-dark-blue;
+  margin: 0 auto;
+  width: auto;
+  height: 200px;
+  border-radius: 20px;
+  padding: 5px;
+  background: $color-dark-blue;
+  box-shadow: $box-sahdow;
+  overflow: hidden;
+
+  @include media-breakpoint-up(sm) {
+      max-height: 300px;
+      max-width: 350px;
+  }
+
+  .v147-image {
+    overflow: hidden;
+    top: 0;
+    position: relative;
+
+    @include animation-name(v147-scroll);
+    @include animation-delay(2s);
+    @include animation-duration(15s);
+    @include animation-iteration-count(infinite);
+    @include animation-timing-function(ease-in-out);
+    @include animation-direction(alternate);
+  }
 }

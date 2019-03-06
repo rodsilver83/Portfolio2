@@ -11,6 +11,13 @@ export enum SECTIONS {
   CONTACT
 }
 
+export enum PORTFOLIO {
+  BPG,
+  INTERNEWS,
+  AMAZEN,
+  V147
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -38,7 +45,9 @@ export class AppComponent implements AfterViewInit {
   public DOT_MAX_SIZE = 100;
   public FILL_DOT = false;
   public SECTIONS = SECTIONS;
+  public PORTFOLIO = PORTFOLIO;
   public visibleSection: SECTIONS = SECTIONS.NONE;
+  public visiblePortfolio: PORTFOLIO = PORTFOLIO.AMAZEN;
 
   private interval: any;
   private intervalCount = -200;
@@ -61,10 +70,11 @@ export class AppComponent implements AfterViewInit {
     this.initCanvas();
     // }
 
-    timer(2500).subscribe(() => this.visibleSection = SECTIONS.HOME);
+    timer(2500).subscribe(() => this.setSection(SECTIONS.PORTFOLIO));
   }
 
   setSection(section: SECTIONS) {
+    // TODO: Change background color for every section.
     this.visibleSection = section;
   }
 
