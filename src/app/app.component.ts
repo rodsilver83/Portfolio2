@@ -70,7 +70,7 @@ export class AppComponent implements AfterViewInit {
     this.initCanvas();
     // }
 
-    timer(2500).subscribe(() => this.setSection(SECTIONS.PORTFOLIO));
+    timer(2500).subscribe(() => this.setSection(SECTIONS.HOME));
   }
 
   setSection(section: SECTIONS) {

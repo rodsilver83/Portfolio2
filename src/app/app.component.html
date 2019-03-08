@@ -9,8 +9,8 @@
     <span class="navbar-title">
         Front End Developer
     </span>
-    <div class="d-block d-sm-none logo-rs" (click)="toggleMenu()">RS</div>
-    <div class="navbar-collapse navbar-small" [class.navbar-small_show]="menuToggle">
+    <div class="d-block d-sm-none logo-rs">RS</div>
+    <div class="navbar-collapse navbar-small">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item" [class.active]="visibleSection === SECTIONS.HOME">
                 <a class="nav-link" (click)="setSection(SECTIONS.HOME)" href="#">Home</a>
