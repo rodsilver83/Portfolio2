@@ -1,5 +1,4 @@
 import { Component, AfterViewInit, HostListener } from '@angular/core';
-import { compileNgModule } from '@angular/core/src/render3/jit/module';
 import { timer } from 'rxjs';
 
 export enum SECTIONS {
