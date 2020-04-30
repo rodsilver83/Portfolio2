@@ -12,6 +12,7 @@ $color-orange: #E96725;
 $color-red: #e92525;
 $title-font-size: 20px;
 $box-sahdow: 1px 1px 5px $color-dark-blue;
+$frame-border: 10px solid $color-green;
 
 // animations timing
 $timing-function: cubic-bezier(.62,-0.32,.36,1.31);
@@ -343,6 +344,19 @@ body {
     }
   }
 
+  &.section-container_min-height {
+    background: transparent;
+    color: $color-white;
+    text-shadow: 2px 2px 3px $color-dark-blue;
+    .section-title {
+      color: $color-white;
+    }
+    @include media-breakpoint-up(sm) {
+      background: $color-dark-blue;
+      min-height: 500px;
+    }
+  }
+
   &.section-container_small {
     @include media-breakpoint-up(sm) {
       max-width: 320px;
@@ -558,13 +572,13 @@ body {
 }
 
 .amazen-frame {
-  border: 15px solid $color-dark-blue;
+  border: 5px solid $color-green;
   margin: 0 auto;
   width: 100%;
   height: 200px;
   border-radius: 20px;
   padding: 5px;
-  background: $color-dark-blue;
+  background: $color-green;
   box-shadow: $box-sahdow;
   @include media-breakpoint-up(sm) {
     width: auto;
@@ -602,7 +616,7 @@ body {
 }
 
 .bpg-frame {
-  border: 15px solid $color-dark-blue;
+  border: $frame-border;
   margin: 0 auto;
   width: auto;
   height: 200px;
@@ -632,7 +646,7 @@ body {
 }
 
 .internews-frame {
-  border: 15px solid $color-dark-blue;
+  border: $frame-border;
   margin: 0 auto;
   height: 350px;
   border-radius: 20px;
@@ -660,7 +674,7 @@ body {
 }
 
 .v147-frame {
-  border: 15px solid $color-dark-blue;
+  border: $frame-border;
   margin: 0 auto;
   width: auto;
   height: 200px;
